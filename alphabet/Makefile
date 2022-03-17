@@ -1,4 +1,4 @@
-PROGRAM_NAME=output
+PROGRAM_NAME=alphabet
 
 build: $(PROGRAM_NAME).bin
 

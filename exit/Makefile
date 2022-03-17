@@ -1,14 +1,15 @@
+PROGRAM_NAME=exit_code
 
-build: exit_code.bin
+build: $(PROGRAM_NAME).bin
 
-run: exit_code.bin
-	qemu-mips ./exit_code.bin												
+run: $(PROGRAM_NAME).bin
+	qemu-mips ./$(PROGRAM_NAME).bin												
 
-exit_code.o:
-	mips-linux-gnu-as exit_code.s -o exit_code.o
+$(PROGRAM_NAME).o:
+	mips-linux-gnu-as $(PROGRAM_NAME).s -o $(PROGRAM_NAME).o
 
-exit_code.bin: exit_code.o
-	mips-linux-gnu-gcc exit_code.o -o exit_code.bin -nostdlib -static
+$(PROGRAM_NAME).bin: $(PROGRAM_NAME).o
+	mips-linux-gnu-gcc $(PROGRAM_NAME).o -o $(PROGRAM_NAME).bin -nostdlib -static
 
 clean:
-	rm -f exit_code.bin exit_code.o
+	rm -f $(PROGRAM_NAME).bin $(PROGRAM_NAME).o
