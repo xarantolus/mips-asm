@@ -14,7 +14,7 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: Install dependencies
-      run: make install
+      run: sudo apt-get update && make install
 
     - name: Compile & Run all programs
       run: bash .github/workflows/run_all.sh 2>&1
