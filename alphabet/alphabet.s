@@ -29,6 +29,7 @@ __start:
     li $a2, 27           # 26 Characters + a newline
     syscall 
 
+    # Exit with code 0
     li $v0, 4001
     li $a0, 0
     syscall
