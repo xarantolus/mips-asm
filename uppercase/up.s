@@ -41,9 +41,10 @@ __start:
     blt		$t2, $t3, .Lwrite	# if $t2 < $t3 then .Lwrite
     bgt		$t2, $t4, .Lwrite	# if $t2 >= $t4 then .Lwrite
         
-    # Make this char uppercase by subtracting 32 
+    # Make this char uppercase by setting the bit for 32 to zero 
     andi	$t2, $t2, 0b11011111
-    sb		$t2, 0($t1)		# 
+    # Write back to the char location, the write function will take it from there
+    sb		$t2, 0($t1)		
     
     .Lwrite:
     jal write
