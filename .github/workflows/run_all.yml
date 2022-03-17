@@ -1,0 +1,20 @@
+name: Run all programs
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  run:
+    name: Run all programs
+    runs-on: ubuntu-latest
+  
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Install dependencies
+      run: make install
+
+    - name: Compile & Run all programs
+      run: bash .github/workflows/run_all.sh 2>&1
