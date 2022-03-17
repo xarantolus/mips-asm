@@ -7,3 +7,5 @@ install:
 clean:
 	find */* -type f -name Makefile -execdir make clean \; > /dev/null
 
+info:
+	find . -type f -name "*.bin" -exec file {} \;
